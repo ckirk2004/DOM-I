@@ -49,12 +49,29 @@ logo.setAttribute('src', siteContent['nav']['img-src']);
 document.title = 'Great Idea!';
 
 const newNavItem = document.querySelectorAll('a');
+const downloadLink = document.createElement('a');
+const previewLink = document.createElement('a');
+const grabNav = document.querySelector('nav');
 newNavItem[0].textContent = siteContent['nav']['nav-item-1'];
 newNavItem[1].textContent = siteContent['nav']['nav-item-2'];
 newNavItem[2].textContent = siteContent['nav']['nav-item-3'];
 newNavItem[3].textContent = siteContent['nav']['nav-item-4'];
 newNavItem[4].textContent = siteContent['nav']['nav-item-5'];
 newNavItem[5].textContent = siteContent['nav']['nav-item-6'];
+
+grabNav.appendChild(downloadLink);
+downloadLink.textContent = 'Download';
+downloadLink.setAttribute('href', '#');
+downloadLink.style.color = 'green';
+
+grabNav.prepend(previewLink);
+previewLink.textContent = 'Preview';
+previewLink.setAttribute('href', '#');
+previewLink.style.color = 'green';
+
+newNavItem.forEach((a) => {
+	a.style.color = 'green';
+});
 
 const ctaText = document.querySelector('h1');
 ctaText.textContent = siteContent['cta']['h1'];
@@ -90,6 +107,10 @@ const contactTitle = document.querySelector('.contact > h4');
 contactTitle.textContent = siteContent.contact['contact-h4'];
 
 const contactAddr = document.querySelectorAll('.contact > p');
+
 contactAddr[0].textContent = siteContent.contact.address;
 contactAddr[1].textContent = siteContent.contact.phone;
 contactAddr[2].textContent = siteContent.contact.email;
+
+const addFooter = document.querySelector('footer > p');
+addFooter.textContent = siteContent.footer.copyright;
